@@ -45,8 +45,8 @@ services:
     networks:
       - docker_example_network
     volumes:
-      - C:\Users\mmose\OneDrive\Programmieren\MoserEnergie/repo.py:/opt/dagster/app/repo.py
-      - C:\Users\mmose\OneDrive\Programmieren\MoserEnergie/jaffle_shop:/opt/dagster/app/jaffle_shop
+      - "C:/Users/mmose/OneDrive/Programmieren/MoserEnergie/repo.py:/opt/dagster/app/repo.py"
+      - "C:/Users/mmose/OneDrive/Programmieren/MoserEnergie/me_dbt:/opt/dagster/app/me_dbt"
 
   docker_example_webserver:
     build:

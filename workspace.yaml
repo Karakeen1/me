@@ -4,3 +4,9 @@ load_from:
       host: docker_example_user_code
       port: 4000
       location_name: "example_user_code"
+
+
+load_from:
+  - python_file:
+      relative_path: /opt/dagster/app/repo.py
+      location_name: example_user_code

@@ -22,19 +22,19 @@ else:
 
 
 @dbt_assets(manifest=dbt_manifest_path)
-def jaffle_shop_dbt_assets(context: OpExecutionContext, dbt: DbtCliResource):
+def me_dbt_assets(context: OpExecutionContext, dbt: DbtCliResource):
     yield from dbt.cli(["build"], context=context).stream()
 
 
 daily_dbt_assets_schedule = build_schedule_from_dbt_selection(
-    [jaffle_shop_dbt_assets],
+    [me_dbt_assets],
     job_name="all_assets_daily_job",
     cron_schedule="0 0 * * *",
     dbt_select="fqn:*",
 )
 
 defs = Definitions(
-    assets=[jaffle_shop_dbt_assets],
+    assets=[me_dbt_assets],
     schedules=[daily_dbt_assets_schedule],
     resources={
         "dbt": DbtCliResource(project_dir=os.fspath(dbt_project_dir)),
